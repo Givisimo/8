@@ -182,8 +182,11 @@ const createListItem = function(note) {
   noteWrapper.append(createNoteContent(note), createNoteFooter(note));
   return noteListItem;
 };
+
 const renderNoteList = (listRef, notes) => {
-  notes.forEach(note => listRef.append(createListItem(note)));
+  let allNotes = [];
+  allNotes = notes.map(note => createListItem(note));
+  listRef.append(...allNotes);
 };
 
 const listRef = document.querySelector('.note-list');
